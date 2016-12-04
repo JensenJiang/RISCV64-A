@@ -5,6 +5,8 @@ I recommend to build this project following the order of how this README is orga
 ### Attention
 This part will take a long time, both git clone and compilation. If you have a prebuilt one, I suggest you use it. For example, our team have one located in `/home/RV64A/tools/riscv`. To specify your own prebuilt one, change `CROSS_RISCV64`.
 
+Also, if you want to specify another install location, change `CROSS_RISCV64`.
+
 We use the commit here: [riscv-toolchain](https://github.com/riscv/riscv-gnu-toolchain/tree/7e4859465ef8b38fb8369971c1449270ae7a19a1)
 ### Prerequisite
 `$ sudo apt-get install autoconf automake autotools-dev curl libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc`
