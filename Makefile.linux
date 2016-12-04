@@ -1,0 +1,32 @@
+LINUX_REPO_LOCAL        := /pub/git/linux.git
+INITRAMFS_DIR		:= $(DIR_RISCV64)/initramfs
+LINUX_CONFIG		:= $(DIR_RISCV64)/config/linuxconfig
+
+
+linux-new:
+	@echo "Remove old linux repo ..."
+	@test -d $(DIR_WORKING) || mkdir $(DIR_WORKING)
+	@rm -rf $(DIR_WORKING)/linux
+	@echo "Clone local repo"
+	@cd $(DIR_WORKING); git clone $(LINUX_REPO_LOCAL) linux
+	@echo "Apply v4.6.2 and riscv patch ..."
+	@cd $(DIR_WORKING)/linux;						\
+		git checkout v4.6 -b riscv-4.6.2;				\
+		git apply $(PATCHES_DIR)/riscv-linux4.6.2-patch.txt;	\
+		git add -A; git commit -m "linux v4.6.2 and riscv priv-1.9"
+
+linux-initramfs:
+	@echo "Set up tmp directory for creating initramfs automatically ..."
+	@cp $(INITRAMFS_DIR)/initramfs.txt $(DIR_WORKING)/linux
+	@cp -R $(INITRAMFS_DIR)/tmp $(DIR_WORKING)/linux
+	@cp $(DIR_WORKING)/busybox/busybox $(DIR_WORKING)/linux/tmp/bin
+	@cp $(DIR_WORKING)/strace/strace $(DIR_WORKING)/linux/tmp/bin
+	@cp $(DIR_WORKING)/helloworld/helloworld $(DIR_WORKING)/linux/tmp
+
+linux-make:
+	@echo "Remove existing .config file ..."
+	@cd $(DIR_WORKING)/linux;					\
+		test -f .config && rm .config;				\
+		cp $(LINUX_CONFIG) .config; 				\
+		make ARCH=riscv oldconfig;				\
+		make ARCH=riscv -j4 vmlinux

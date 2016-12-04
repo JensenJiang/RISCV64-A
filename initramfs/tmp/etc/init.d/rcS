@@ -1,0 +1,4 @@
+#! /bin/sh
+/bin/busybox --install -s
+mount -t proc proc /proc
+mount -t devtmpfs devtmpfs /dev 
