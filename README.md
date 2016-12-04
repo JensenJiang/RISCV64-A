@@ -1,4 +1,6 @@
 # RISCV64 QEMU GUIDE
+## Attention
+I recommend to build this project following the order of how this README is organized.
 ## gnu-toolchain
 ### Attention
 This part will take a long time, both git clone and compilation. If you have a prebuilt one, I suggest you use it. For example, our team have one located in `/home/RV64A/tools/riscv`. To specify your own prebuilt one, change `CROSS_RISCV64`.
