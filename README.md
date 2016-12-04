@@ -31,6 +31,7 @@ To specify another repo, change `RISCV_PK_REPO`
 For more about the port of strace, see:
 - [fedora-riscv](https://github.com/rwmjones/fedora-riscv)
 - [Status of strace](https://groups.google.com/a/groups.riscv.org/forum/#!searchin/sw-dev/strace/sw-dev/5_rKwrRzT4I/T4Y1k0ImCwAJ)
+
 ### Clone and Make
 1. `make strace-new`
 2. `make strace-make`
