@@ -1,4 +1,4 @@
-DIR_RISCV64	:= $(wildcard ~/RISCV64-A)
+DIR_RISCV64	:= $(patsubst %/, %, $(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
 DIR_WORKING	:= $(DIR_RISCV64)/working
 
 CROSS_RISCV64	:= /home/RV64A/tools/riscv 
