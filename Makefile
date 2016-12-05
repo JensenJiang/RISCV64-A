@@ -61,7 +61,7 @@ toolchain-make:
 	@echo "Build gnu toolchain ..."
 	@cd $(DIR_WORKING)/riscv-toolchain;			\
 		./configure --prefix=$(CROSS_RISCV64);			\
-		make -j4
+		make -j4 linux
 
 busybox:
 	@echo "Remove old busybox ..."
