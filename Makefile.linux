@@ -17,8 +17,10 @@ linux-new:
 
 linux-initramfs:
 	@echo "Set up tmp directory for creating initramfs automatically ..."
+	@rm -rf $(DIR_WORKING)/linux/tmp
 	@cp $(INITRAMFS_DIR)/initramfs.txt $(DIR_WORKING)/linux
 	@cp -R $(INITRAMFS_DIR)/tmp $(DIR_WORKING)/linux
+	@mkdir $(DIR_WORKING)/linux/tmp/bin
 	@cp $(DIR_WORKING)/busybox/busybox $(DIR_WORKING)/linux/tmp/bin
 	@cp $(DIR_WORKING)/strace/strace $(DIR_WORKING)/linux/tmp/bin
 	@cp $(DIR_WORKING)/helloworld/helloworld $(DIR_WORKING)/linux/tmp
