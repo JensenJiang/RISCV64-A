@@ -95,11 +95,10 @@ strace-new:
 	@test -d $(DIR_WORKING) || mkdir -p $(DIR_WORKING)
 	@rm -rf $(DIR_WORKING)/strace
 	@cd $(DIR_WORKING); git clone $(STRACE_REPO) strace
-	@cd $(DIR_WORKING)/strace; 				\	
-		git checkout $(STRACE_COMMIT) -b riscv-strace;	\
-		git apply $(PATCHES_DIR)/strace-riscv-patch.txt;\
-		git add -A;					\
-		git commit -m "strace port to riscv-linux"	\
+	@cd $(DIR_WORKING)/strace; git checkout $(STRACE_COMMIT) -b riscv-strace;	\
+		git apply $(PATCHES_DIR)/strace-riscv-patch.txt;			\
+		git add -A;								\
+		git commit -m "strace port to riscv-linux"
 
 strace-make:
 	@echo "Build strace ..."
