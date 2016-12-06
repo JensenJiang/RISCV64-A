@@ -4,6 +4,7 @@ DIR_WORKING	:= $(DIR_RISCV64)/working
 CROSS_RISCV64	:= /home/RV64A/tools/riscv 
 CROSS_COMPILE	:= $(CROSS_RISCV64)/bin/riscv64-unknown-linux-gnu-
 CROSS_PREFIX	:= riscv64-unknown-linux-gnu-
+DIR_GNU_RISCV   := $(CROSS_RISCV64)/riscv64-unknown-linux-gnu
 
 BUSYBOX_BUILDLOG:= $(DIR_WORKING)/busybox-build.log
 BUSYBOX_CONFIG	:= $(DIR_RISCV64)/config/busybox_1.26_defconfig
